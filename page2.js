@@ -21,20 +21,35 @@ window.onclick = function(event) {
     }
 }
 
+let activeFile = "";
 async function fetchObject() {
     const objectName = document.getElementById("input-object-name").value;
     let url = `/readfile.php?objectname=${objectName}`;
     const response = await fetch(url);
     console.log(response);
-    
-    const object = await response.text()
-    console.log(object);
-    document.getElementById("dropdown-container").innerHTML = object;
-    //setInterval(checkUpdates, 10 * 100, objectName);
-}
 
-async function checkUpdates() {
-    
+    const object = await response.text()
+    document.getElementById("dropdown-container").innerHTML = object;
+
+    activeFile = objectName;
 }
 
 document.getElementById("input-button-object").onclick = fetchObject;
+
+
+async function checkUpdates() {
+    const objectName = document.getElementById("input-object-name").value;
+    if (objectName !== "") {
+        let url = `/readfile.php?objectname=${activeFile}`;
+        const response = await fetch(url);
+        console.log(response);
+
+        const object = await response.text()
+
+        if(object !== document.getElementById("dropdown-container").innerHTML) {
+            document.getElementById("dropdown-container").innerHTML = object;
+        }
+    }
+}
+
+setInterval(checkUpdates, 10 * 1000);
