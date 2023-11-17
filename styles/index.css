@@ -116,7 +116,17 @@ body {
     width: 150px;
 }
 
+.dropdown-operations {
+    display: flex;
+    gap: 5px;
+}
+
 .dropdown-add-horizontal {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-add-vertical {
     display: flex;
     flex-direction: column;
 }

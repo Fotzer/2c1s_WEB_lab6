@@ -37,3 +37,15 @@ window.onclick = function(event) {
   }
 
 document.getElementById("dropdown-add-horizontal-button").onclick = addHorizontalMenu;
+
+function addVerticalItem() {
+    const dropdownName = document.getElementById("dropdown-add-horizontal-input").value;
+    const horizontalMenu = document.getElementById(dropdownName)
+    if(horizontalMenu !== null) {
+        const verticalItemName = document.getElementById("dropdown-add-vertical-input-name").value;
+        const verticalItemLink = document.getElementById("dropdown-add-vertical-input-link").value;
+        horizontalMenu.innerHTML += `<a href="${verticalItemLink}">${verticalItemName}</a>`
+    }
+}
+
+document.getElementById("dropdown-add-vertical-button").onclick = addVerticalItem;
