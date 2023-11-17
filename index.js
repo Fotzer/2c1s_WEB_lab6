@@ -47,16 +47,23 @@ function addVerticalItem() {
 
 document.getElementById("dropdown-add-vertical-button").onclick = addVerticalItem;
 
-function updateObjectValue(event) {
-  const object = document.getElementById("dropdown-container").innerHTML;
-  const input = document.getElementById("form-input-value");
-  input.value = object;
-
+async function sendObject() {
   const objectName = document.getElementById("form-input-name").value;
-  if(objectName === "") {
-    event.preventDefault()
+
+  if(objectName !== "") {
+    const objectValue = document.getElementById("dropdown-container").innerHTML;
+
+    let formData = new FormData();
+    formData.append("object", objectValue);
+    formData.append("objectname", objectName);
+
+    const response = await fetch("writefile.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    console.log(response);
   }
-  return true;
 }
 
-document.getElementById("form-page1").onsubmit = updateObjectValue;
+document.getElementById("submit-object").onclick = sendObject;
