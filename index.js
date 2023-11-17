@@ -6,9 +6,6 @@ function addHorizontalMenu() {
     dropdownContainer.innerHTML += `<div>
         <button onclick="toogleDropdown('${dropdownName}')" class="dropbtn">${dropdownName}</button>
         <div id="${dropdownName}" class="dropdown-content">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
         </div>
     </div>`;
 }
@@ -40,12 +37,26 @@ document.getElementById("dropdown-add-horizontal-button").onclick = addHorizonta
 
 function addVerticalItem() {
     const dropdownName = document.getElementById("dropdown-add-horizontal-input").value;
-    const horizontalMenu = document.getElementById(dropdownName)
+    const horizontalMenu = document.getElementById(dropdownName);
     if(horizontalMenu !== null) {
         const verticalItemName = document.getElementById("dropdown-add-vertical-input-name").value;
         const verticalItemLink = document.getElementById("dropdown-add-vertical-input-link").value;
-        horizontalMenu.innerHTML += `<a href="${verticalItemLink}">${verticalItemName}</a>`
+        horizontalMenu.innerHTML += `<a href="${verticalItemLink}">${verticalItemName}</a>`;
     }
 }
 
 document.getElementById("dropdown-add-vertical-button").onclick = addVerticalItem;
+
+function updateObjectValue(event) {
+  const object = document.getElementById("dropdown-container").innerHTML;
+  const input = document.getElementById("form-input-value");
+  input.value = object;
+
+  const objectName = document.getElementById("form-input-name").value;
+  if(objectName === "") {
+    event.preventDefault()
+  }
+  return true;
+}
+
+document.getElementById("form-page1").onsubmit = updateObjectValue;

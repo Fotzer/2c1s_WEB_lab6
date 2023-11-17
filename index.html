@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab1</title>
-    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./public/styles/index.css">
 </head>
 <body>
     <div class="blue div1">
@@ -38,20 +38,19 @@
                 <div class="dropdown-add-vertical">
                     <input id="dropdown-add-vertical-input-name" type="text" placeholder="Vertical item name"/>
                     <input id="dropdown-add-vertical-input-link" type="text" placeholder="Vertical item link"/>
-                    <button id="dropdown-add-vertical-button">Add horizontal</button>
+                    <button id="dropdown-add-vertical-button">Add vertical</button>
                 </div>
             </div>
             <div id="dropdown-container">
-                <div>
-                    <button onclick="toogleDropdown('myDropdown')" class="dropbtn">Dropdown</button>
-                    <div id="myDropdown" class="dropdown-content">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                    </div>
-                </div>
             </div>
+            <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+            <form id="form-page1" action="writefile.php" method="post" target="dummyframe">
+                <input id="form-input-name" type="text" name="objectname" placeholder="Input object name">
+                <input id="form-input-value" type="text" name="object" value="">
+                <input type="submit">
+            </form>
         </div>
+       
 
         <div class="div5">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
