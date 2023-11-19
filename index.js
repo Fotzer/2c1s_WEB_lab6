@@ -3,11 +3,11 @@ function addHorizontalMenu() {
     const dropdownName = document.getElementById("dropdown-add-horizontal-input").value;
     
     if(dropdownName !== "" && document.getElementById(dropdownName) === null)
-    dropdownContainer.innerHTML += `<div>
-        <button onclick="toogleDropdown('${dropdownName}')" class="dropbtn">${dropdownName}</button>
-        <div id="${dropdownName}" class="dropdown-content">
-        </div>
-    </div>`;
+    dropdownContainer.innerHTML += `<div>` +
+        `<button onclick="toogleDropdown('${dropdownName}')" class="dropbtn">${dropdownName}</button>` +
+        `<div id="${dropdownName}" class="dropdown-content">` +
+        `</div>` +
+    `</div>\n`;
 }
 
 function toogleDropdown(name) {
